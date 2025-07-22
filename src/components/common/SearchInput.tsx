@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import searchIcon from "../../assets/Search.svg";
 import { useFetchUser } from "../../hooks/UseGetInfo";
 import { useUser } from "../../context/UserContext";
 
 export default function SearchInput() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { user, setUser } = useUser();
+  const { setUser } = useUser();
   const { user: userFetch } = useFetchUser(searchTerm);// solo se dispara cuando `debouncedTerm` cambia
 
   const handleClick = () => { 
