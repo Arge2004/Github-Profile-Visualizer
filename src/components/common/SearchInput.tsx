@@ -1,25 +1,52 @@
 import React, { useState} from "react";
 import searchIcon from "../../assets/Search.svg";
-import { useFetchUser } from "../../hooks/UseGetInfo";
+import { useFetchUser, useFetchRepositories } from "../../hooks/UseGetInfo";
 import { useUser } from "../../context/UserContext";
+import type { userInfo, notFound } from "../../types/UserTypes";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isNotFound(data: any): data is notFound {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    typeof data.message === "string" &&
+    typeof data.documentation_url === "string" &&
+    typeof data.status === "string"
+  );
+}
 
 export default function SearchInput() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { setUser } = useUser();
-  const { user: userFetch } = useFetchUser(searchTerm);// solo se dispara cuando `debouncedTerm` cambia
+  const { setUser, setRepositories, setNotFound } = useUser();
+  const { fetchUser } = useFetchUser();
+  const { fetchRepos } = useFetchRepositories();
 
-  const handleClick = () => { 
-    if (searchTerm.trim() !== "") {
-      setUser(userFetch);
+  const handleClick = async () => {
+    const data = await fetchUser(searchTerm);
+    if (isNotFound(data)) {
+      console.error("User not found");
+      setNotFound(true);
+      setTimeout(() => {
+        setNotFound(false);
+        setUser(null)
+      }, 2000);
+
+      return;
+    }
+    
+    const repositoriesData = await fetchRepos(searchTerm);
+    if (data && repositoriesData) {
       setSearchTerm("");
+      setUser(data as userInfo);
+      setRepositories(repositoriesData);
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && searchTerm.trim() !== "") {
-      setUser(userFetch);
-      setSearchTerm("");
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      await handleClick();
     }
+
   };
 
 

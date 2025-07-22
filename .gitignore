@@ -25,3 +25,4 @@ dist-ssr
 
 #pta variable de entorno
 .env
+.vercel

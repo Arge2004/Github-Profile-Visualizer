@@ -22,4 +22,10 @@ export type repository = {
     updated_at: string;
 }
 
+export type notFound = {
+    message: string;
+    documentation_url: string;
+    status: string
+};
+
 export type repositoriesInfo = repository[];
