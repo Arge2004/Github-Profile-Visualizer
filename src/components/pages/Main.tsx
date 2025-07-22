@@ -5,7 +5,7 @@ import ProfileSection from "../sections/ProfileSection";
 import { useUser } from "../../context/UserContext";
 
 export default function Main() {
-  const { loading, user, repositories, notFound, setNotFound } = useUser();
+  const { loading, user, repositories, notFound} = useUser();
  
   if (notFound) {
     return (
