@@ -7,14 +7,6 @@ import type {
   repository,
 } from "../types/UserTypes";
 
-const token = import.meta.env.VITE_GITHUB_TOKEN;
-
-const headers = {
-  "Content-Type": "application/json",
-  Accept: "application/vnd.github.v3+json",
-  Authorization: `bearer ${token}`,
-};
-
 // Hook para obtener usuario
 export function useFetchUser(username: string) {
   const [user, setUser] = useState<userInfo | null>(null);
@@ -25,14 +17,11 @@ export function useFetchUser(username: string) {
     const fetchUser = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          `https://api.github.com/users/${username}`,
-          { headers }
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const res = await fetch(`/api/github?username=${username}`);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
         }
-        const data = await response.json();
+        const data = await res.json();
         const formattedUser: userInfo = {
           login: data.login,
           name: data.name || null,
@@ -71,7 +60,7 @@ export function useFetchRepositories() {
 
       try {
         setLoading(true);
-        const response = await fetch(`${user.reposUrl}?per_page=6&page=1&sort=updated_at&direction=desc`, { headers });
+        const response = await fetch(`/api/github?username=${user.login}&type=repos`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
