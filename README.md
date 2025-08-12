@@ -7,7 +7,7 @@
 
 Una aplicación web simple que permite explorar información detallada de perfiles de GitHub ingresando un nombre de usuario.  
 
-Muestra la bio, avatar, seguidores, repositorios y estadísticas de lenguajes en una interfaz limpia, rápida y responsive.
+Muestra la bio, avatar, seguidores y repositorios en una interfaz limpia, rápida y responsive.
 
 ---
 
@@ -36,7 +36,6 @@ _Visualización de datos del usuario y estadísticas_
 ## ⚙️ Características principales  
 - Búsqueda rápida por usuario GitHub  
 - Perfil con bio, avatar, seguidores y repositorios  
-- Estadísticas de lenguajes usados  
 - Diseño responsive  
 
 ---
