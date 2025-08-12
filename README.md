@@ -46,7 +46,10 @@ git clone https://github.com/tuusuario/github-profile-visualizer.git
 cd github-profile-visualizer
 npm install
 npm run dev
+```
 
+---
 📄 Licencia
 MIT License — ver LICENSE
+---
 
