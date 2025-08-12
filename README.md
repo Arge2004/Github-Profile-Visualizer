@@ -12,7 +12,7 @@ Muestra la bio, avatar, seguidores y repositorios en una interfaz limpia, rápid
 ---
 
 ## 🚀 Demo  
-[Ver demo en vivo](https://tu-demo-url.com)  
+[Ver demo en vivo](https://github-profile-visualizer-eosin.vercel.app/)  
 
 ---
 
