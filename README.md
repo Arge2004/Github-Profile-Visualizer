@@ -1,71 +1,53 @@
-# React + TypeScript + Vite
+# GitHub Profile Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Currently, two official plugins are available:
+Una aplicación web simple que permite explorar información detallada de perfiles de GitHub ingresando un nombre de usuario.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Muestra la bio, avatar, seguidores, repositorios y estadísticas de lenguajes en una interfaz limpia, rápida y responsive.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Demo  
+[Ver demo en vivo](https://tu-demo-url.com)  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📸 Capturas de pantalla
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+![Captura del buscador](./screenshots/search.png)  
+_Búsqueda rápida por nombre de usuario_
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![Perfil mostrado](./screenshots/profile.png)  
+_Visualización de datos del usuario y estadísticas_
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# Github-Profile-Visualizer
-GitHub Profile Visualizer is a simple web app that lets users view detailed GitHub profile information by entering a username. It displays the user's bio, avatar, followers, repositories, and language stats in a clean, responsive UI. Built with React, TypeScript, and Tailwind CSS, it offers a fast and user-friendly way to explore GitHub profiles.
+## 🛠 Tecnologías utilizadas  
+- **React**  
+- **TypeScript**  
+- **Tailwind CSS**  
+
+---
+
+## ⚙️ Características principales  
+- Búsqueda rápida por usuario GitHub  
+- Perfil con bio, avatar, seguidores y repositorios  
+- Estadísticas de lenguajes usados  
+- Diseño responsive  
+
+---
+
+## 📦 Instalación y ejecución local  
+```bash
+git clone https://github.com/tuusuario/github-profile-visualizer.git
+cd github-profile-visualizer
+npm install
+npm run dev
+
+📄 Licencia
+MIT License — ver LICENSE
+
